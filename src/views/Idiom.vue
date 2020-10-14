@@ -1,75 +1,17 @@
 <template>
     <div style="padding-top: 150px">
-        <h1 style="text-align: center; padding-bottom: 10px">成语资料库</h1>
-        <div style="line-height: 45px; width: 620px; padding-left: calc((100% - 620px)/2)">
+        <h1 class="headline">成语资料库</h1>
+        <div class="search_condition">
             <input v-model="param" placeholder="请输入成语"/>
             <button style="margin-left: 20px" @click="queryIdiom">查询</button>
         </div>
-        <div style="width: 800px; padding-left: calc((100% - 800px)/2); padding-top: 40px">
-            <div>
+        <div class="search_result" v-show="Object.keys(value).length > 0">
+            <div class="idiom-box" v-for="property in properties" :key="property.column">
                 <div class="idiom-param">
-                    <strong>汉语全拼</strong>
+                    <strong>{{property.title}}</strong>
                 </div>
                 <div class="idiom-param-explain">
-                    <span>ngyujs":" 除草时要连根除掉，使草不能再长。比喻除去祸根，以免后患。",
-                        "from_":" 《左传·隐公六年》：“为国家者，见恶如农夫之务去草焉，芟夷蕰崇之，绝其本根，勿使能殖，则善者信矣。”北齐·魏收《为侯景叛移梁朝文》：“若抽薪止沸，剪草除根。”",
-                        "example":" ～，萌芽不发；斩草若不除根，春至萌芽再发。 明·冯梦龙《警世通言》卷三十七",
-                        "yufa":" 连动式；作谓语、宾语；指彻底成事",
-                        "ciyujs":"[cut the weeds and dig up the roots—destroy root and branch] 比喻铲除祸根,以免留下后患",
-                        "yinzhengjs":"比喻彻底去除祸根</span>
-                </div>
-            </div>
-            <div>
-                <div class="idiom-param">
-                    <strong>释义寓意</strong>
-                </div>
-                <div class="idiom-param-explain">
-                    <span >ngyujs":" 除草时要连根除掉，使草不能再长。比喻除去祸根，以免后患。",
-                        "from_":" 《左传·隐公六年》：“为国家者，见恶如农夫之务去草焉，芟夷蕰崇之，绝其本根，勿使能殖，则善者信矣。”北齐·魏收《为侯景叛移梁朝文》：“若抽薪止沸，剪草除根。”",
-                        "example":" ～，萌芽不发；斩草若不除根，春至萌芽再发。 明·冯梦龙《警世通言》卷三十七",
-                        "yufa":" 连动式；作谓语、宾语；指彻底成事",
-                        "ciyujs":"[cut the weeds and dig up the roots—destroy root and branch] 比喻铲除祸根,以免留下后患",
-                        "yinzhengjs":"比喻彻底去除祸根</span>
-                </div>
-            </div>
-            <div>
-                <div class="idiom-param">
-                    <strong>来源出处</strong>
-                </div>
-                <div class="idiom-param-explain">
-                <span style="margin-left: 10px">ngyujs":" 除草时要连根除掉，使草不能再长。比喻除去祸根，以免后患。",
-                        "from_":" 《左传·隐公六年》：“为国家者，见恶如农夫之务去草焉，芟夷蕰崇之，绝其本根，勿使能殖，则善者信矣。”北齐·魏收《为侯景叛移梁朝文》：“若抽薪止沸，剪草除根。”",
-                        "example":" ～，萌芽不发；斩草若不除根，春至萌芽再发。 明·冯梦龙《警世通言》卷三十七",
-                        "yufa":" 连动式；作谓语、宾语；指彻底成事",
-                        "ciyujs":"[cut the weeds and dig up the roots—destroy root and branch] 比喻铲除祸根,以免留下后患",
-                        "yinzhengjs":"比喻彻底去除祸根</span>
-                </div>
-            </div>
-            <div>
-                <div class="idiom-param">
-                    <strong>同义成语</strong>
-                </div>
-                <div class="idiom-param-explain">
-                    <span style="margin-left: 10px">ngyujs":" 除草时要连根除掉，使草不能再长。比喻除去祸根，以免后患。",
-                            "from_":" 《左传·隐公六年》：“为国家者，见恶如农夫之务去草焉，芟夷蕰崇之，绝其本根，勿使能殖，则善者信矣。”北齐·魏收《为侯景叛移梁朝文》：“若抽薪止沸，剪草除根。”",
-                            "example":" ～，萌芽不发；斩草若不除根，春至萌芽再发。 明·冯梦龙《警世通言》卷三十七",
-                            "yufa":" 连动式；作谓语、宾语；指彻底成事",
-                            "ciyujs":"[cut the weeds and dig up the roots—destroy root and branch] 比喻铲除祸根,以免留下后患",
-                            "yinzhengjs":"比喻彻底去除祸根</span>
-                </div>
-                <div style=""></div>
-            </div>
-            <div>
-                <div class="idiom-param">
-                    <strong>反义成语</strong>
-                </div>
-                <div class="idiom-param-explain">
-                <span style="margin-left: 10px">ngyujs":" 除草时要连根除掉，使草不能再长。比喻除去祸根，以免后患。",
-                        "from_":" 《左传·隐公六年》：“为国家者，见恶如农夫之务去草焉，芟夷蕰崇之，绝其本根，勿使能殖，则善者信矣。”北齐·魏收《为侯景叛移梁朝文》：“若抽薪止沸，剪草除根。”",
-                        "example":" ～，萌芽不发；斩草若不除根，春至萌芽再发。 明·冯梦龙《警世通言》卷三十七",
-                        "yufa":" 连动式；作谓语、宾语；指彻底成事",
-                        "ciyujs":"[cut the weeds and dig up the roots—destroy root and branch] 比喻铲除祸根,以免留下后患",
-                        "yinzhengjs":"比喻彻底去除祸根</span>
+                    <span>{{value[property.column]}}</span>
                 </div>
             </div>
         </div>
@@ -77,23 +19,50 @@
 </template>
 
 <script>
+    // 引入Axios
+    import Axios from "axios";
+    // 引入聚合数据的成语api所需的key
+    import key from '../config/juhe-key'
+
     export default {
         name: "Idiom",
         data() {
             return {
+                properties: [{
+                    title: '汉语全拼',
+                    column: 'pinyin'
+                }, {
+                    title: '释义寓意',
+                    column: 'chengyujs'
+                }, {
+                    title: '出处',
+                    column: 'from_'
+                }, {
+                    title: '同义成语',
+                    column: 'tongyi'
+                }, {
+                    title: '反义成语',
+                    column: 'fanyi'
+                }],
                 param: '',
-                value: []
+                value: {}
             }
         },
         methods: {
             // 查询成语
             queryIdiom() {
-                this.Axios.get("/demo2/restTemplate/restTemplateGetList")
+                Axios.get(`/chengyu/query?key=${key.chengyu}&word=${this.param}`)
                 .then( response => {
-                    console.log("成语查询结果", response)
+                    if (response.data.error_code === 0) {
+                        this.value = response.data.result
+                    } else {
+                        console.error("成语查询失败", response.data)
+                        alert("查询成语出错： 错误信息: " + response.data.reason)
+                    }
                 })
                 .catch( error => {
-                    console.error("成语查询失败", error)
+                    console.error("成语查询失败", error.response)
+                    alert("查询成语出错： 错误信息: " + error.response.data)
                 })
             }
         }
@@ -101,6 +70,21 @@
 </script>
 
 <style scoped>
+    .headline {
+        text-align: center;
+        padding-bottom: 10px
+    }
+    .search_condition {
+        line-height: 45px;
+        width: 620px;
+        padding-left: calc((100% - 620px)/2)
+    }
+    .search_result {
+        width: 800px;
+        padding-left: calc((100% - 800px)/2);
+        padding-top: 40px
+    }
+
     input {
         outline: none;                          /** 去除选中时边框样式 */
         caret-color: red;                       /** 修改光标颜色 */
@@ -128,12 +112,16 @@
         border-color: #62b0ff;
     }
 
+    .idiom-box {
+        clear: both;
+        height: 25px
+    }
     .idiom-param {
         width: 100px;
         float: left
     }
     .idiom-param-explain {
-        width: 650px;
+        width: 700px;
         float: left
     }
 </style>
