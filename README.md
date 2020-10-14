@@ -30,3 +30,42 @@
 ### 1.1 学习目标
 
 ​		通过axios请求聚合数据的成语词典api， 根据word查询成语
+
+### 1.2 搭建环境
+
+1. 创建vue项目  **life-encyclopedia-database**， 并用IDE工具打开，如下
+
+   ![](README.assets/createProject.png)
+
+2. 引入axios依赖并注册为全局对象
+
+   - 安装依赖
+
+   ```
+   npm install axios
+   ```
+
+   ![](README.assets/installAxios.png)
+
+   - 注册为全局依赖 (修改 src/main.js)
+
+   ```
+   import Vue from 'vue'
+   import App from './App.vue'
+   
+   Vue.config.productionTip = false
+   
+   # 引入Axios
+   import Axios from "axios";
+   Vue.prototype.Axios = Axios
+   
+   new Vue({
+     render: h => h(App),
+   }).$mount('#app')
+   ```
+
+1. 编写代码： 修改App.vue内容
+
+   
+
+2. s 
