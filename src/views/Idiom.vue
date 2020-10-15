@@ -51,6 +51,7 @@
         methods: {
             // 查询成语
             queryIdiom() {
+                // 聚合数据的请求接口: http://v.juhe.cn/chengyu/query
                 Axios.get(`/chengyu/query?key=${key.chengyu}&word=${this.param}`)
                 .then( response => {
                     if (response.data.error_code === 0) {
