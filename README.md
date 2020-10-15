@@ -35,12 +35,13 @@
 ### * 说明
 
 - 课程中所有变量使用形式 为  **${变量内容}**
+- 程序的源代码： 
 
 ### 1.1 学习目标
 
 通过axios请求聚合数据的成语词典api， 根据成语查询成语释义并对查询结果进行展示，最终页面效果图如下
 
-![](README.assets/example-chengyu.jpg)
+<img src="README.assets/example-chengyu.jpg"/>
 
 ### 1.2 资料科普
 
@@ -175,7 +176,7 @@
    npm install axios
    ```
 
-   ![](README.assets/installAxios.png)
+   <img src="README.assets/installAxios.png"/>
 
 3. 创建组件及配置文件
 
@@ -189,7 +190,7 @@
 
    申请网址： https://dashboard.juhe.cn/data/index/apply
 
-   ![](README.assets/chengyu-apply.png)
+   <img src="README.assets/chengyu-apply.png"/>
 
    
 
@@ -199,7 +200,7 @@
 
 - 获取 聚合账号成语api的key：https://dashboard.juhe.cn/data/index/my
 
-  ![](README.assets/chengyu-key.png)
+  <img src="README.assets/chengyu-key.png"/>
 
 
 
@@ -215,7 +216,7 @@
 
 - api地址： https://www.juhe.cn/docs/api/id/157
 
-![image-20201015101402854](README.assets/chengyu-api.png)
+  <img src="README.assets/chengyu-api.png"/>
 
 - ​	通过查看api， 可以看到
 
@@ -387,11 +388,39 @@
   </style>
   ```
 
-  #### 1.4.5 启动程序
+#### 1.4.5 修改默认启动组件
+
+- 修改组件：src/App.vue
+
+  ```
+  <template>
+      <div>
+          <Idiom></Idiom>
+      </div>
+  </template>
   
-  访问 localhost:8080,  页面展示如下
+  <script>
   
-  ![image-20201015150728046](README.assets/chengyu-fangwen.png)
+  import Idiom from "./views/Idiom";
+  
+  export default {
+      name: 'App',
+      components: {
+          Idiom
+      }
+  }
+  </script>
+  
+  <style>
+  </style>
+  
+  ```
+
+#### 1.4.6 启动程序
+
+访问 localhost:8080,  页面展示如下
+
+<img src="README.assets/chengyu-fangwen.png"/>
 
 ### 1.5 闯关练习
 
