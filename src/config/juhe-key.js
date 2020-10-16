@@ -1,6 +1,6 @@
 export default {
     chengyu: window.atob("ZTJiZDAyZTY3OTBjNGJlMzcxMzg3N2UyNjNjMGJhNzE"),
-
+    joke: window.atob("M2IyNTE5NjU2NzUyZDEzMDUxNTQ3YzY2MDQ0M2E4MDU="),
 }
 
 
